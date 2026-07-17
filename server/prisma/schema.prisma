@@ -1,0 +1,38 @@
+generator client{
+    provider="prisma-client-js"
+}
+
+datasource db {
+    provider ="postgresql"
+    url = env("DATABASE_URL")
+
+}
+model User{
+    id String @id @default(uuid())
+    email String  @unique
+    name String?
+    password String
+    sessions ChatSession[]
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model ChatSession{
+    id   String    @id@default(uuid())
+    title String   @default("New Chat")
+    userID  String 
+    user  User     @relation(fields:[userId], references:[id],onDelete: Cascade)
+    generations ImageGeneration[]
+    createdAt  DateTime   @deafult(now())
+    updatedAt  DateTime   @updatedAt
+}
+
+model ImageGeneration {
+    id String @id @deafult(uuid())
+    prompt String
+    imageUrl String
+    status String @default("completed)
+    sessionId String
+    session  ChatSession @relation(fields:[sessionId],refernces:[id],onDelete:Cascade)
+    createdAt DateTime @deafult(now())
+}
