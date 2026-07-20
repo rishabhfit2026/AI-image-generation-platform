@@ -1,5 +1,4 @@
-import bcrypt from 'bcryptjs':
-import prisma from'''import bcrypt from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import prisma from '../config/db.js';
 import { signToken } from '../utils/jwt.js';
 
@@ -23,6 +22,9 @@ export const register = async (req, res, next) => {
 export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+    if (!email || !password)
+      return res.status(400).json({ message: 'Email and password are required' });
+
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) return res.status(401).json({ message: 'Invalid credentials' });
 
