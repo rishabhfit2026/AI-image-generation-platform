@@ -1,4 +1,4 @@
-# 🎨 Imagine — AI Image Generation Platform
+# Imagine — AI Image Generation Platform
 
 A full-stack platform where users generate images from text prompts, organise them into chat-style sessions, and browse their complete generation history. Built with a MERN-style stack using PostgreSQL + Prisma.
 
@@ -6,22 +6,22 @@ A full-stack platform where users generate images from text prompts, organise th
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔐 **JWT Authentication** — secure register / login with hashed passwords (bcrypt)
-- 🖼️ **Prompt-based image generation** — pluggable AI providers (Pollinations / Stability AI / Hugging Face)
-- 💬 **Chat-style sessions** — prompts grouped into conversations
-- ✏️ **Rename & delete sessions**
-- 📜 **History page** with **search** + **pagination**
-- ⬇️ **Download** generated images
-- ↻ **Regenerate** from a previous prompt
-- ⚡ **Loading states** everywhere
-- 📱 **Fully responsive** dark UI (mobile sidebar drawer)
-- 🐳 **Docker** deployment + ✅ **unit tests**
+- **JWT Authentication** — secure register / login with hashed passwords (bcrypt)
+- **Prompt-based image generation** — pluggable AI providers (Pollinations / Stability AI / Hugging Face)
+- **Chat-style sessions** — prompts grouped into conversations
+- **Rename & delete sessions**
+- **History page** with **search** + **pagination**
+- **Download** generated images
+- **Regenerate** from a previous prompt
+- **Loading states** everywhere
+- **Fully responsive** dark UI (mobile sidebar drawer)
+- **Docker** deployment + **unit tests**
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer     | Technology                                           |
 |-----------|------------------------------------------------------|
@@ -35,7 +35,7 @@ A full-stack platform where users generate images from text prompts, organise th
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
@@ -63,7 +63,7 @@ A full-stack platform where users generate images from text prompts, organise th
 
 ---
 
-## 🚀 Quick Start (Docker — recommended)
+## Quick Start (Docker — recommended)
 
 ```bash
 git clone https://github.com/rishabhfit2026/AI-image-generation-platform.git
@@ -75,9 +75,9 @@ Then open **http://localhost:8080**. That's it — Postgres, migrations, API and
 
 ---
 
-## 🛠️ Local Development Setup
+## Local Development Setup
 
-**Prerequisites:** Node.js ≥ 18, PostgreSQL running locally.
+**Prerequisites:** Node.js >= 18, PostgreSQL running locally.
 
 ### 1. Backend
 
@@ -106,7 +106,7 @@ npm test
 
 ---
 
-## 🔑 Environment Variables (`server/.env.example`)
+## Environment Variables (`server/.env.example`)
 
 | Variable            | Description                                              |
 |---------------------|----------------------------------------------------------|
@@ -124,7 +124,7 @@ npm test
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### Auth
 | Method | Endpoint             | Description                    |
@@ -145,16 +145,16 @@ npm test
 ### Images (all require token)
 | Method | Endpoint                    | Description                                     |
 |--------|-----------------------------|-------------------------------------------------|
-| POST   | `/api/images/generate`      | `{ prompt, sessionId? }` → generates an image (creates a session if none given) |
+| POST   | `/api/images/generate`      | `{ prompt, sessionId? }` — generates an image (creates a session if none given) |
 | POST   | `/api/images/:id/regenerate`| Re-run the same prompt, new image               |
 | GET    | `/api/images/history`       | `?page=&limit=&search=` — paginated, searchable |
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ```
-User 1 ──── * ChatSession 1 ──── * ImageGeneration
+User 1 ---- * ChatSession 1 ---- * ImageGeneration
 ```
 
 - **User**: id, email (unique), name, password (hashed), timestamps
@@ -163,6 +163,6 @@ User 1 ──── * ChatSession 1 ──── * ImageGeneration
 
 ---
 
-## 🎬 Demo Video
+## Demo Video
 
-_A 3–5 minute walkthrough covering register/login, image generation, sessions (rename/delete), history search + pagination, and download/regenerate._
+_A 3-5 minute walkthrough covering register/login, image generation, sessions (rename/delete), history search + pagination, and download/regenerate._
